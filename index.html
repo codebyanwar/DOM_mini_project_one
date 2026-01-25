@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap icon linked -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Dom Project 1</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .dom-title{
+            font-size: 32px;
+            margin: 20px 0;
+            color: #111;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .button-container{
+            text-align: center;
+        }
+        .dom-button{
+            font-size: 30px;
+            padding: 20px;
+            margin: 30px 20px;
+        }
+        .dom-button:disabled{
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2 class="dom-title">Increase or Decrise the Number</h2>
+        <h2 class="dom-title">Current Number <span id="counting-number" style="color: green;">0</span></h2>
+        <div class="button-container">
+            <button id="plus-number" class="dom-button"><i class="bi bi-plus"></i></button>
+            <button id="minus-number" class="dom-button"><i class="bi bi-dash"></i></button>
+        </div>
+    </div>
+
+
+
+    <script>
+        const countingNumber = document.getElementById('counting-number');
+        const plusBtn=document.getElementById('plus-number');
+        const minusBtn= document.getElementById('minus-number');
+
+        let counter= 0;
+
+        const updateCounter=(value)=>{
+            // plus coundown
+            counter= counter+value;
+            countingNumber.innerText = counter;
+
+            if(counter>=10){
+                plusBtn.setAttribute('disabled', true);
+            }else{
+                plusBtn.removeAttribute('disabled', false);
+            }
+
+            
+            // minus coundown
+
+            if(counter<=0){
+                minusBtn.setAttribute('disabled', true);
+            }else{
+                minusBtn.removeAttribute('disabled', false);
+            }
+        }
+
+        plusBtn.addEventListener('click', ()=>{
+            updateCounter(1);
+        });
+
+        minusBtn.addEventListener('click', ()=>{
+            updateCounter(-1);
+        });
+    </script>
+</body>
+</html>
