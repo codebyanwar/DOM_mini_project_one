@@ -53,11 +53,11 @@
         let counter= 0;
 
         const updateCounter=(value)=>{
+            countingNumber.innerText = counter;
             // plus coundown
             counter= counter+value;
-            countingNumber.innerText = counter;
 
-            if(counter>=10){
+            if(counter>10){
                 plusBtn.setAttribute('disabled', true);
             }else{
                 plusBtn.removeAttribute('disabled', false);
@@ -66,7 +66,7 @@
             
             // minus coundown
 
-            if(counter<=0){
+            if(counter<0){
                 minusBtn.setAttribute('disabled', true);
             }else{
                 minusBtn.removeAttribute('disabled', false);
